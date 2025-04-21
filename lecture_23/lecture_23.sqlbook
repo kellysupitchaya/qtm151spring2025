@@ -36,12 +36,14 @@ panel on the left:
 
 Delete existing table
 -- SQLBook: Code
+-- Active: 1736954268155@@127.0.0.1@5432@postgres
 -- Active: 1710903290079@@127.0.0.1@5432@postgres
 -- If the table already exists we can drop it:
 -- If it doesn't exist nothing happens
 -- System commands are in upper case and user defined
 -- names are in lower case
 -- Comments are written with double dashes "--" rather than hastag (#)
+-- Every line is going to end with a ";"
 
 DROP TABLE IF EXISTS drivers;
 -- SQLBook: Markup
@@ -52,6 +54,7 @@ Create empty table from codebook
 -- Create empty TABLE called "drivers"
 -- This example has five arguments separated by a comma
 -- that contain the "column_name" and "column_type", respectively
+-- After running this, we created an empty table with only headings
 
 CREATE TABLE drivers(
     driver_id int,
@@ -100,6 +103,10 @@ Try it yourself!
 -- Select a new driver id (needs to be unique)
 -- Make sure to deparate arguments by a semicolon!
 
+INSERT INTO drivers VALUES (10, 'Kelly','Thai',150);
+
+INSERT INTO drivers VALUES (7, 'Katie', 'British', 100);
+
 
 
 
@@ -121,6 +128,8 @@ SELECT driver_id, nationality FROM drivers;
 Extract all columns from table
 -- SQLBook: Code
 -- The symbol "*" is a shorthand for "all variables"
+-- Selecting every columns 
+
 SELECT * FROM drivers;
 -- SQLBook: Markup
 <font size = "5">
@@ -189,8 +198,8 @@ with more than 60 victories
 -- SQLBook: Code
 -- Write your own code!
 
-
-
+SELECT driver_id, nationality FROM drivers
+WHERE victories > 60;
 -- SQLBook: Markup
 # <span style="color:darkblue"> III. Groupby + Chaining </span>
 
